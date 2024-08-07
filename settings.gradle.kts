@@ -1,5 +1,7 @@
 rootProject.name = "DesafioPicpay"
 include(":app")
-include(":modules:data")
-include(":modules:domain")
-include(":modules:presentation")
+include(":layers:data")
+include(":layers:domain")
+include(":layers:presentation")
+include(":modules:dependencyInjection")
+include(":modules:commons")

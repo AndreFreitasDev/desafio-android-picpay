@@ -4,8 +4,8 @@ import org.gradle.api.artifacts.dsl.DependencyHandler
 fun DependencyHandler.implementation(dependencyNotation: String): Dependency? =
     add("implementation", dependencyNotation)
 
-fun DependencyHandler.kapt(dependency: String) : Dependency? =
-    add("kapt", dependency)
+fun DependencyHandler.ksp(dependency: String) : Dependency? =
+    add("ksp", dependency)
 
 fun DependencyHandler.testImplementation(dependency: String): Dependency? =
     add("testImplementation", dependency)

@@ -1,5 +1,9 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
+fun DependencyHandler.androidxAnnotation() {
+    implementation("androidx.annotation:annotation:1.3.0")
+}
+
 fun DependencyHandler.androidxDesign() {
     implementation("androidx.core:core-ktx:${Versions.core_ktx_version}")
     implementation("androidx.appcompat:appcompat:${Versions.appcompat_version}")
@@ -32,6 +36,18 @@ fun DependencyHandler.coroutines() {
 fun DependencyHandler.images() {
     implementation("com.squareup.picasso:picasso:${Versions.picasso_version}")
     implementation("de.hdodenhof:circleimageview:${Versions.circleimageview_version}")
+}
+
+fun DependencyHandler.timber() {
+    implementation("com.jakewharton.timber:timber:5.0.1")
+}
+
+fun DependencyHandler.androidxRoom() {
+    val version = Versions.room_version
+    ksp("androidx.room:room-compiler:$version")
+    implementation("androidx.room:room-runtime:$version")
+    implementation("androidx.room:room-ktx:$version")
+    testImplementation("androidx.room:room-testing:$version")
 }
 
 fun DependencyHandler.retrofit2() {

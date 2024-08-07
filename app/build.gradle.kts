@@ -3,6 +3,7 @@ plugins {
     id("picpay-plugin")
     id("kotlin-parcelize")
     kotlin("android")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -32,7 +33,10 @@ android {
 }
 
 dependencies {
-    //implementation(project(mapOf("path" to ":pdsDesign")))
+    // modules
+    implementation(project(":modules:dependencyInjection"))
+    implementation(project(":layers:presentation"))
+    //libs
     koin()
     androidxDesign()
     androidxLifecycle()
@@ -41,6 +45,7 @@ dependencies {
     retrofit2()
     okhttp3()
     commons()
+    timber()
     //tests
     testLibraries()
     androidTestLibraries()

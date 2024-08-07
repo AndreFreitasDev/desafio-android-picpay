@@ -7,6 +7,7 @@ object Versions {
     const val okhttp_version = "4.12.0"
     const val picasso_version = "2.71828"
     const val circleimageview_version = "3.0.0"
+    const val room_version = "2.6.1"
 
     const val koin_version = "3.5.6"
     const val lifecycle_version = "2.5.1"
