@@ -20,6 +20,9 @@ class GetUsersUseCase(
         if (users == null) {
             users = getUsersCached()
         }
+        if (users.isEmpty()) {
+           throw RuntimeException("users is empty")
+        }
         return@withContext users
     }
 
