@@ -49,20 +49,34 @@ class MainActivity : AppCompatActivity() {
             is MainViewState.Nothing -> {}
             is MainViewState.UsersLoaded -> {
                 adapter.addItems(state.users)
+                with(binding) {
+                    recyclerView.visibility = View.VISIBLE
+                    containerError.visibility = View.GONE
+                }
             }
             is MainViewState.ShowLoading -> {
                 with(binding) {
-                    userListProgressBar.visibility = View.VISIBLE
+                    recyclerView.visibility = View.GONE
+                    containerError.visibility = View.GONE
+                    progress.visibility = View.VISIBLE
                 }
             }
             is MainViewState.HideLoading -> {
                 with(binding) {
-                    userListProgressBar.visibility = View.GONE
+                    progress.visibility = View.GONE
                 }
             }
             is MainViewState.PresentError -> {
                 val text = state.message.asString(this)
-                Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+                with(binding) {
+                    recyclerView.visibility = View.GONE
+                    progress.visibility = View.GONE
+                    containerError.visibility = View.VISIBLE
+                    messageError.text = text
+                    buttonRetry.setOnClickListener {
+                        viewModel.handleIntent(MainIntent.LoadUsers)
+                    }
+                }
             }
         }
     }

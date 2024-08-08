@@ -17,9 +17,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
-private const val DEFAULT_CONNECT_TIMEOUT = 60L
-private const val DEFAULT_READ_TIMEOUT = 60L
-private const val DEFAULT_WRITE_TIMEOUT = 60L
+private const val DEFAULT_CONNECT_TIMEOUT = 10L
+private const val DEFAULT_READ_TIMEOUT = 10L
+private const val DEFAULT_WRITE_TIMEOUT = 10L
 private const val TAG = "PicPay-API"
 private const val URL = "https://609a908e0f5a13001721b74e.mockapi.io/picpay/api/"
 

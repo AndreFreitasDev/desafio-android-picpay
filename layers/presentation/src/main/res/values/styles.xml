@@ -8,10 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="ScreenTitleTextView" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">28sp</item>
-        <item name="android:textStyle">bold</item>
+    <style name="Text.Headline" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@color/colorWhite</item>
     </style>
 
 </resources>
