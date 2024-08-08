@@ -14,6 +14,7 @@ class MainApplication : Application() {
         startKoin {
             androidContext(this@MainApplication)
             modules(appModules)
+            allowOverride(true)
         }
         configTimberLogging()
     }

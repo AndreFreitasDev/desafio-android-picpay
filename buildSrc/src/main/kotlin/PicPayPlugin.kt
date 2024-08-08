@@ -35,7 +35,7 @@ class PicPayPlugin : Plugin<Project> {
             defaultConfig {
                 minSdk = AppConfig.minSdkVersion
                 targetSdk = AppConfig.targetSdkVersion
-                testInstrumentationRunner = AppConfig.androidJUnitRunner
+                //testInstrumentationRunner = AppConfig.androidJUnitRunner
                 multiDexEnabled = true
                 vectorDrawables.useSupportLibrary = true
             }

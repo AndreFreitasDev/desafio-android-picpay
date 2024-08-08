@@ -61,7 +61,7 @@ object DataModules {
                 .build()
         }
 
-        factory<Retrofit> {
+        single<Retrofit> {
             val okHttpClient: OkHttpClient = get()
             val gson = GsonBuilder().create()
             Retrofit.Builder()

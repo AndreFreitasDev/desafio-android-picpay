@@ -13,6 +13,7 @@ android {
         applicationId = AppConfig.applicationId
         versionCode = AppConfig.appVersionCode
         versionName = AppConfig.appVersionName
+        testInstrumentationRunner = "com.picpay.desafio.android.CustomTestInstrumentationRunner"
     }
 
     buildTypes {
@@ -40,6 +41,7 @@ dependencies {
     koin()
     androidxDesign()
     timber()
+    retrofit2()
     //tests
     androidTestUtil("androidx.test:orchestrator:1.5.0")
     androidTestLibraries()
