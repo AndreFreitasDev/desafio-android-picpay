@@ -20,6 +20,8 @@ object Versions {
     const val mockito_kotlin_version = "2.1.0"
     const val core_testing_version = "2.1.0"
     const val core_ktx_test_version = "1.2.0"
-    const val test_runner_version = "1.1.1"
-    const val espresso_version = "3.1.1"
+    const val test_ext_junit_version = "1.1.3"
+    const val test_runner_version = "1.4.0"
+    const val espresso_version = "3.5.1"
+    const val google_truth_version = "1.1.3"
 }

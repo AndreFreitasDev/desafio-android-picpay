@@ -39,14 +39,8 @@ dependencies {
     //libs
     koin()
     androidxDesign()
-    androidxLifecycle()
-    coroutines()
-    images()
-    retrofit2()
-    okhttp3()
-    commons()
     timber()
     //tests
-    testLibraries()
+    androidTestUtil("androidx.test:orchestrator:1.5.0")
     androidTestLibraries()
 }

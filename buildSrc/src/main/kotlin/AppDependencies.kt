@@ -59,7 +59,6 @@ fun DependencyHandler.retrofit2() {
 fun DependencyHandler.okhttp3() {
     val version = Versions.okhttp_version
     implementation("com.squareup.okhttp3:okhttp:$version")
-    implementation("com.squareup.okhttp3:mockwebserver:$version")
     implementation("com.squareup.okhttp3:logging-interceptor:$version")
 }
 
@@ -89,19 +88,25 @@ fun DependencyHandler.testLibraries() {
     testImplementation("app.cash.turbine:turbine:1.0.0")
 
     // Assertions
-    testImplementation("com.google.truth:truth:1.1.3")
+    testImplementation("com.google.truth:truth:${Versions.google_truth_version}")
 
     //others
     testImplementation("androidx.arch.core:core-testing:${Versions.core_testing_version}")
-    testImplementation("org.mockito:mockito-core:${Versions.mockito_version}")
-    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito_kotlin_version}")
 
     // module
     testImplementation(project(":modules:tests"))
 }
 
 fun DependencyHandler.androidTestLibraries() {
-    androidTestImplementation("androidx.test:runner:${Versions.test_runner_version}")
-    androidTestImplementation("androidx.test.espresso:espresso-core:${Versions.espresso_version}")
-    androidTestImplementation("androidx.test:core-ktx:${Versions.core_ktx_test_version}")
+    listOf(
+        "com.squareup.okhttp3:mockwebserver:${Versions.okhttp_version}",
+        "com.google.truth:truth:${Versions.google_truth_version}",
+        "androidx.test:runner:${Versions.test_runner_version}",
+        "androidx.test:rules:${Versions.test_runner_version}",
+        "androidx.test.ext:junit:${Versions.test_ext_junit_version}",
+        "androidx.test.espresso:espresso-core:${Versions.espresso_version}",
+        "androidx.test:core-ktx:${Versions.core_ktx_test_version}"
+    ).forEach { dependency ->
+        androidTestImplementation(dependency)
+    }
 }
