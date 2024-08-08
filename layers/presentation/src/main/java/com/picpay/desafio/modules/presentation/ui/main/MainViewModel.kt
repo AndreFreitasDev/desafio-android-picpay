@@ -3,7 +3,8 @@ package com.picpay.desafio.modules.presentation.ui.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.picpay.desafio.libraries.commons.StringValue
+import com.picpay.desafio.modules.commons.coroutines.DispatcherProvider
+import com.picpay.desafio.modules.commons.resources.StringValue
 import com.picpay.desafio.modules.domain.model.User
 import com.picpay.desafio.modules.domain.useCases.GetUsersUseCase
 import com.picpay.desafio.modules.presentation.R
@@ -13,7 +14,8 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class MainViewModel(
-    private val getUsersUseCase: GetUsersUseCase
+    private val getUsersUseCase: GetUsersUseCase,
+    private val dispatcher: DispatcherProvider
 ): ViewModel() {
 
     private val usersLiveData = MutableLiveData<List<User>>()
@@ -39,7 +41,7 @@ class MainViewModel(
             MainViewState.UsersLoaded(usersCache).sendState()
             return
         }
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher.main) {
             MainViewState.ShowLoading.sendState()
             kotlin.runCatching {
                 getUsersUseCase.execute().apply {

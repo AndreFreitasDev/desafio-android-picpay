@@ -9,7 +9,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":modules:commons"))
     implementation(project(":layers:data"))
     koin()
     coroutines()
+    testLibraries()
 }

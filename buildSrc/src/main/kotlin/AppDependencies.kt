@@ -1,4 +1,5 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.project
 
 fun DependencyHandler.androidxAnnotation() {
     implementation("androidx.annotation:annotation:1.3.0")
@@ -30,7 +31,6 @@ fun DependencyHandler.coroutines() {
     val version = Versions.coroutines_version
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$version")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$version")
 }
 
 fun DependencyHandler.images() {
@@ -77,10 +77,16 @@ fun DependencyHandler.testLibraries() {
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junit5Version")
     testRuntimeOnly("org.junit.vintage:junit-vintage-engine:$junit5Version")
 
+    // coroutines
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_version}")
+
     // mockk
     val mockkVersion = Versions.mockk_version
     testImplementation("io.mockk:mockk-android:$mockkVersion")
     testImplementation("io.mockk:mockk-agent:$mockkVersion")
+
+    // flow
+    testImplementation("app.cash.turbine:turbine:1.0.0")
 
     // Assertions
     testImplementation("com.google.truth:truth:1.1.3")
@@ -89,6 +95,9 @@ fun DependencyHandler.testLibraries() {
     testImplementation("androidx.arch.core:core-testing:${Versions.core_testing_version}")
     testImplementation("org.mockito:mockito-core:${Versions.mockito_version}")
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito_kotlin_version}")
+
+    // module
+    testImplementation(project(":modules:tests"))
 }
 
 fun DependencyHandler.androidTestLibraries() {

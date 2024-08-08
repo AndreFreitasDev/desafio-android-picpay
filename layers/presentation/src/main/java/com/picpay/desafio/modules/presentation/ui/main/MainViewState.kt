@@ -1,6 +1,6 @@
 package com.picpay.desafio.modules.presentation.ui.main
 
-import com.picpay.desafio.libraries.commons.StringValue
+import com.picpay.desafio.modules.commons.resources.StringValue
 import com.picpay.desafio.modules.domain.model.User
 
 sealed interface MainViewState {

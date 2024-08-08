@@ -15,4 +15,5 @@ dependencies {
     retrofit2()
     okhttp3()
     timber()
+    testLibraries()
 }

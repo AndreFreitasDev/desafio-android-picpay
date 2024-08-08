@@ -1,4 +1,5 @@
 import org.gradle.api.artifacts.Dependency
+import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 fun DependencyHandler.implementation(dependencyNotation: String): Dependency? =
@@ -8,6 +9,9 @@ fun DependencyHandler.ksp(dependency: String) : Dependency? =
     add("ksp", dependency)
 
 fun DependencyHandler.testImplementation(dependency: String): Dependency? =
+    add("testImplementation", dependency)
+
+fun DependencyHandler.testImplementation(dependency: ProjectDependency): Dependency? =
     add("testImplementation", dependency)
 
 fun DependencyHandler.androidTestImplementation(dependency: String): Dependency? =

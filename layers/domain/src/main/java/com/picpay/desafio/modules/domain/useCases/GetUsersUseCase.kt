@@ -1,7 +1,7 @@
 package com.picpay.desafio.modules.domain.useCases
 
 import com.picpay.desafio.modules.data.network.PicPayRepository
-import com.picpay.desafio.modules.domain.coroutines.DispatcherProvider
+import com.picpay.desafio.modules.commons.coroutines.DispatcherProvider
 import com.picpay.desafio.modules.domain.model.User
 import kotlinx.coroutines.withContext
 
@@ -12,7 +12,7 @@ class GetUsersUseCase(
     private val dispatcher: DispatcherProvider
 ) {
 
-    suspend fun execute(): List<User> = withContext(dispatcher.io()) {
+    suspend fun execute(): List<User> = withContext(dispatcher.io) {
         var users = getUsersFromApi()?.let { users ->
             saveCacheOfUsersUseCase.execute(users)
             users

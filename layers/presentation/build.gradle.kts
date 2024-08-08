@@ -20,4 +20,5 @@ dependencies {
     images()
     commons()
     timber()
+    testLibraries()
 }

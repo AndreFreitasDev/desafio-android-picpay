@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.picpay.desafio.libraries.commons"
+    namespace = "com.picpay.desafio.modules.commons"
 }
 
 dependencies {

@@ -1,6 +1,7 @@
 package com.picpay.desafio.modules.domain.di
 
-import com.picpay.desafio.modules.domain.coroutines.DispatcherProvider
+import com.picpay.desafio.modules.commons.coroutines.DispatcherProvider
+import com.picpay.desafio.modules.commons.coroutines.DispatcherProviderImpl
 import com.picpay.desafio.modules.domain.useCases.GetCacheOfUsersUseCase
 import com.picpay.desafio.modules.domain.useCases.GetUsersUseCase
 import com.picpay.desafio.modules.domain.useCases.SaveCacheOfUsersUseCase
@@ -9,8 +10,8 @@ import org.koin.dsl.module
 object DomainModules {
 
     val module = module {
-        factory {
-            DispatcherProvider()
+        factory<DispatcherProvider> {
+            DispatcherProviderImpl()
         }
     }
 

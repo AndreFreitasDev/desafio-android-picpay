@@ -9,7 +9,8 @@ object PresentationModules {
     val viewModelModule = module {
         viewModel {
             MainViewModel(
-                getUsersUseCase = get()
+                getUsersUseCase = get(),
+                dispatcher = get()
             )
         }
     }

@@ -1,4 +1,4 @@
-package com.picpay.desafio.libraries.commons
+package com.picpay.desafio.modules.commons.resources
 
 import android.content.Context
 import androidx.annotation.StringRes
